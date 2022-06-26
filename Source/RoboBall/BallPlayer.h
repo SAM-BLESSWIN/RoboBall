@@ -22,7 +22,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	//Components//
+	//COMPONENTS//
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UStaticMeshComponent* Mesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -51,6 +51,7 @@ private:
 	void MoveForwardCallback(float value);
 	void JumpCallback();
 
+	//DYNAMIC BINDING FUNCTION//
 	UFUNCTION()             //UFUNCTION() - Needed for binding a function with another
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
