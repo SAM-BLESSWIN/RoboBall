@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "PickUps.generated.h"
 
+
 UCLASS()
 class ROBOBALL_API APickUps : public AActor
 {

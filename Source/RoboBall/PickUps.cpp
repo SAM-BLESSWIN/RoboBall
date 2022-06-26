@@ -3,6 +3,7 @@
 
 #include "PickUps.h"
 #include "RoboBall/BallPlayer.h"
+#include "RoboBall/RoboBallGameModeBase.h"
 
 // Sets default values
 APickUps::APickUps()
@@ -36,13 +37,17 @@ void APickUps::OverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 	//Check whether the hit Actor is Player
 	if (Cast<ABallPlayer>(OtherActor) != nullptr)
 	{
-		Collected();
+		Collected();  //Calls the event implemented in Blueprint
 	}
 }
 
-//Blueprint implementable
 void APickUps::Collected_Implementation() 
 {
-	//TODO : Do Game Mode Stuffs
+	//Called from Blueprint
+	ARoboBallGameModeBase* GameMode = Cast<ARoboBallGameModeBase>(GetWorld()->GetAuthGameMode());
+	if (GameMode)
+	{
+		GameMode->ItemCollected();
+	}
 }
 
